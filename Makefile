@@ -1,11 +1,12 @@
 CC      = gcc
-CFLAGS  =
+CFLAGS  = -O2 
 LDFLAGS =
 
-all: fano
+fano_EXEC = fano
+all:	fano
 
-fano: fano.o
-        $(CC) $(CFLAGS) $< -o $@
+fano: 	traite_arg.o fano.o
+	$(CC) $(CFLAGS) -o $(fano_EXEC) traite_arg.o fano.o
 
 clean:
-        rm -f *.o fano
+	rm -f *.o fano
