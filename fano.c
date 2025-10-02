@@ -143,8 +143,9 @@ int main(int argc, char *argv[]){
     	fclose(fichier_chaines_a_supprimer);
     }
 
-    // on ajoute /etc/dic a /tmp/dic
-    system("cat /etc/dic >> /tmp/dic");
+    // on ajoute le dictionnaire choisi à /tmp/dic
+    sprintf(cmd, "cat %s >> /tmp/dic", dico);
+    system(cmd);
 
     // on ouvre le dic qu'on a construit /tmp/dic
     fichier_chaines_a_supprimer = fopen("/tmp/dic", "r");
